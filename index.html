@@ -6,54 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flavor Alchemy</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="has-background-grey-light has-text-success-dark">
 
     <header>
-        <h1>Pending</h1>
+        <h1 class="is-size-1 has-text-centered">Flavor Alchemy</h1>
     </header>
 
-    <nav>
-        <a href=" #about-us">About Us</a>
+    <nav class="has-text-centered">
+        <a href="#about-us">About Us</a>
         <a href="#contact-us">Contact Us</a>
     </nav>
-
-    <div class="product-description">
-        <h2>Product Description</h2>
+    <!-- adam -->
+    <div class="py-6 my-3 product-description">
+        <h2>Product Description:</h2>
         <p>In this project, we aim to develop a highly customizable and user-friendly Personalized Meal Recommendation
             System. The system will allow users to create profiles where they can specify their dietary preferences,
             allergies, and flavor preferences. The system will then use this information to generate personalized meal
             recommendations tailored to each user's unique requirements.</p>
     </div>
-
-    <div class="sidebar">
-        <div class="login-form">
-            <h2>Login</h2>
-            <!-- Login form w/ submission boxes for username and password -->
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">Login</button>
+    <!-- caleb -->
+    <aside class="sidebar box has-background-grey-lighter">
+        <div class="">
+            <h2>Food Restrictions:</h2>
+            <div>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Gluten-free
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Nut allergy
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Non-Dairy
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Wheat
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Soy
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Shellfish
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Fish
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Sesame
+                </label>
+            </div>
+            <button class="button is-success is-light is-small" type="submit">Search</button>
             </form>
         </div>
-    </div>
+    </aside>
 
-    <div class="user-sign-in-info">
-        <h2>User Sign-In Information</h2>
-        <!-- User sign-in information boxes go here -->
     </div>
 
     <footer class="footer">
         <!-- Copyright symbol of company -->
         <div class="content has-text-centered">
             <p>Copyright © </p>
-
+            <p>&copy; 2024 Flavor Alchemy. All rights reserved.</p>
         </div>
 
         <!-- Three columns created using columns class of Bulma -->
