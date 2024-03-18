@@ -1,6 +1,6 @@
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Graduate', sans-serif; 
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
@@ -46,10 +46,10 @@ nav a {
 
 /* Sidebar styles */
 .sidebar {
-    float: right;
+    float: center;
     width: 30%;
     background-color: #f0f0f0;
-    padding: 20px;
+    padding: 40px;
 }
 
 .sidebar .login-form {
