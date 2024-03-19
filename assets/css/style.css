@@ -52,53 +52,28 @@ nav a {
     padding: 40px;
 }
 
-.sidebar .login-form {
+/*.sidebar .login-form {
     background-color: #fff;
     padding: 20px;
 }
 
 .sidebar .login-form h2 {
     color: #333;
-}
+}*/
 
 .sidebar input[type="text"],
 .sidebar input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #116e0d;
     border-radius: 5px;
-}
-
-.sidebar button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
-.sidebar button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* User sign-in information styles */
-.user-sign-in-info {
-    background-color: #f0f0f0;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.user-sign-in-info h2 {
-    color: #333;
 }
 
 /* Footer styles */
 footer {
     background-color: #4c4ff3;
-    color: #fff;
+    color: black;
     padding: 20px;
     text-align: center;
 }
