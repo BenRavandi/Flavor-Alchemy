@@ -16,11 +16,13 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
+    background-image: url(https://img.freepik.com/free-photo/top-view-fresh-vegetables-red-pepper-powder-turmeric-small-bowls-wooden-spoons-table-free-space_140725-147447.jpg?t=st=1710811282~exp=1710814882~hmac=3c92e249a79904d650583a311bef42c18464f79d6efd5efb02cc662bae8bfb77&w=1380);
+    background-size: cover;
 }
 
 /* Navigation styles */
 nav {
-    background-color: #4c4ff3;
+
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -51,53 +53,30 @@ nav a {
     padding: 40px;
 }
 
-.sidebar .login-form {
+/*.sidebar .login-form {
     background-color: #fff;
     padding: 20px;
 }
 
 .sidebar .login-form h2 {
     color: #333;
-}
+}*/
 
 .sidebar input[type="text"],
 .sidebar input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #116e0d;
     border-radius: 5px;
-}
-
-.sidebar button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
-.sidebar button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* User sign-in information styles */
-.user-sign-in-info {
-    background-color: #f0f0f0;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.user-sign-in-info h2 {
-    color: #333;
 }
 
 /* Footer styles */
 footer {
     background-color: #4c4ff3;
+
     color: #0e0d0d;
+
     padding: 20px;
     text-align: center;
 }
