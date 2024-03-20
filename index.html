@@ -9,18 +9,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body class="has-background-grey-light has-text-success-dark">
 
     <header>
         <h1 class="is-size-1 has-text-centered">Flavor Alchemy</h1>
-    </nav>
+        </nav>
     </header>
 
 
-       
+
     </header>
     <!-- adam -->
     <div class="py-6 my-3 product-description has-background-primary-light">
@@ -31,7 +31,7 @@
             find keto-friendly recipes, gluten-free options, vegan delights, and more. We help you navigate
             your culinary journey based on your unique preferences. Our system will use your information to
             generate meal recommendations tailored to your unique taste. Whether
-            you’re craving comfort food or want to explore global cuisines, Flavor Alchemy has it all!!!.</p>
+            you’re craving comfort food or want to explore global cuisines, Flavor Alchemy has it all!!!</p>
     </div>
     <!-- caleb -->
     <Div class="box has-background-primary-light has-text-success-dark">
@@ -71,6 +71,19 @@
                     Sesame
                 </label>
             </div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <p>Are you done with your choice?</p>
+                    <button id="confirmButton">CONFIRM</button>
+                    <button id="cancelButton">CANCEL</button>
+                </div>
+
+            </div><br>
+
+            <div>
+                <button class="button is-info is-dark is-big" type="submit" id="addButton">Message</button>
+            </div><br>
+
             <button class="button is-info is-dark is-big" type="submit">Search</button>
             </form>
             <!-- Added button id for searchButton -->
@@ -104,9 +117,10 @@
                     Flavor Alchemy Easy to navigate, with recipes organized by category or by collection,
                     Recipetineatsfocuses on great food with everyday ingredients, which can be put together even if
                     you’re busy and on a limited budget.
-                </p>
-
+                </p><br>
             </div>
+
+
 
             <!-- Column 2 -->
             <div class="column">
@@ -137,6 +151,24 @@
                         </span>
                     </a>
                 </p>
+                <div id="newletterButton">
+                    <button onclick="openModal()">NEWSLETTER SIGN UP</button>
+
+                    <!-- The Modal (contains the Sign Up form) -->
+                    <div id="newsletterModal" class="modal">
+                        <span onclick="closeModal()" class="close" title="Close Modal">&times;</span>
+                        <form class="modal-content"
+                            action="https://w1.buysub.com/pubs/BP/CID/CID_Social_999_ISC23E043.jsp?cds_page_id=274869&cds_mag_code=CID&id=1710962999595&lsid=40801429595048241&vid=1&utm_medium=cpc&utm_content=Food&utm_term=food+magazine+subscription&msclkid=aba3722bf52210c3181417d0cc38f514&utm_source=bing&utm_campaign=Non-Brand%7CMagazine%7CPhrase"
+                            method="post">
+                            <div class="container">
+                                <h1>Sign Up for Our Newsletter</h1>
+                                <p>Please enter your email address:</p>
+                                <input type="email" placeholder="Enter Email" name="email" required>
+                                <button type="submit" id="subscribe">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
             </div>
 
