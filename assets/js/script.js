@@ -50,6 +50,7 @@ function saveSearch(searchResults) {
   };
   
   // Event listener for search button
+  // Run a console log for searchButton, if it works then consider it FINISHED - adam
   document.getElementById('searchButton').addEventListener('click', function() {
     var searchInput = document.getElementById('searchInput').value.trim();
     
@@ -60,6 +61,8 @@ function saveSearch(searchResults) {
       // Display the updated list of previous searches
       displayPreviousSearches();
     }
+    // FINISHED window location replace - adam
+    window.location.replace("search-results.html");
   });
   
   // Event listener for clear button
