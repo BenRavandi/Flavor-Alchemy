@@ -67,3 +67,38 @@ function saveSearch(searchResults) {
     // Clear searches from local storage and the UI
     clearSearches();
   });
+
+
+
+
+
+//   section for ingredient array (UNFINISHED)
+let ingredients = [];
+
+function addIngredient() {
+    const ingredientInput = document.getElementById('ingredient');
+    const ingredient = ingredientInput.value.trim();
+
+    if (ingredient) {
+        ingredients.push(ingredient);
+        ingredientInput.value = '';
+        displayIngredients();
+    }
+}
+// function to display ingredients
+function displayIngredients() {
+    const ingredientList = document.getElementById('ingredientList');
+    ingredientList.innerHTML = '';
+    ingredients.forEach(ingredient => {
+        const li = document.createElement('li');
+        li.textContent = ingredient;
+        ingredientList.appendChild(li);
+    });
+}
+// add function to communicate with API (UNFINISHED)
+
+
+document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.log('Searching for recipes with ingredients:', ingredients);
+});
