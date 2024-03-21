@@ -1,120 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results</title>
+    <title>Results | Flavor Alchemy Recipe Library</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-    <!-- Add any necessary CSS files or stylesheets -->
-</head>
-<body>
-    <!-- Content of the ingredients results page -->
-    <button class="button is-info is-dark is-big" type="submit">Search</button>
-            </form>
-            <aside class="sidebar">
-                <input type="text" placeholder="type some ingredients!"></input>
-                <button class="button is-info is-dark is-small" type="add">Add</button>
-            </aside>
-            <a class="user-response"></a>
 
-    <main>
-        <!-- Search results content -->
-        <h1>Search Results</h1>
-        <div id="searchResults">
-            <!-- Display search results here -->
-        </div>
-    </main>
+<body class="has-background-grey-light has-text-success-dark">
 
-    <footer class="footer">
+    <header>
+        <h1 class="is-size-1 has-text-centered">Flavor Alchemy</h1>
+    </header>
 
-        <!-- Three columns created using columns class of Bulma -->
-        <div class="columns">
-            <!-- Column 1 -->
-            <div class="column">
+    <body>
+        <div class="flex-row align-center justify-center min-100-vh bg-primary">
+            <div class="col-12 col-md-9 flex-column align-center bg-light p-5">
+                <h1 class="text-primary">Flavor Alchemy Recipe Library </h1>
+                <form id="search-form" class="form w-100">
+                    <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
+                    <select id="format-input" class="form-input w-100">
+                        <option value="" disabled selected>Select a food restriction...</option>
+                        <option value="gluten-free" id="gluten-free">Gluten-free</option>
+                        <option value="nut-allergy">Nut allergy</option>
+                        <option value="non-Dairy">Non-Dairy</option>
+                        <option value="wheat">Wheat</option>
+                        <option value="soy">Soy</option>
+                        <option value="shellfish">Shellfish</option>
+                        <option value="fish">Fish</option>
+                        <option value="sesame">Sesame</option>
+                    </select>
+                    <button class="btn btn-info btn-block">Find Me</button>
+                </form>
 
-                <!-- footer content -->
-                <p class="bd-footer-link  
-                has-text-left">
-                    Flavor Alchemy Easy to navigate, with recipes organized by category or by collection,
-                    Recipetineatsfocuses on great food with everyday ingredients, which can be put together even if
-                    you’re busy and on a limited budget.
-                </p>
-
+                <a href="./index.html" class="btn btn-block btn-danger">&larr; Go back.</a>
             </div>
 
-            <!-- Column 2 -->
-            <div class="column">
-                <h4 class="bd-footer-title  
-                 has-text-weight-medium  
-                 has-text-justify">
-                    <span style="text-decoration: underline;">Explore</span>
-                </h4>
-
-                <!-- Column 2 lists with links -->
-                <p class="bd-footer-link">
-                    <a href="https://www.hungryroot.com/philosophy/">
-                        <span class="icon-text">
-                            <span>Philosophy</span>
-                        </span>
-                    </a>
-                    <br />
-                    <a
-                        href="https://blog.hungryroot.com/?_gl=1*s46dtk*_ga*MTMxMjQwODU5OC4xNzEwODAyMzEw*_ga_LH4B8FYSQ2*MTcxMDgwMjMwOS4xLjEuMTcxMDgwMjcxNC4zMy4wLjA.*_ga_QX5NDYMRT8*MTcxMDgwMjMxMC4xLjEuMTcxMDgwMjcxNC4zMy4wLjA.">
-                        <span class="icon-text">
-                            <span>Blogs</span>
-                        </span>
-                    </a>
-                    <br />
-                    <a href="https://www.hungryroot.com/careers/">
-                        <span class="icon-text">
-                            <span>Careers</span>
-                        </span>
-                    </a>
-                </p>
-
-            </div>
-
-            <!-- Column 3 -->
-            <div class="column">
-                <h4 class="bd-footer-title 
-                 has-text-weight-medium 
-                 has-text-justify">
-                    <span style="text-decoration: underline;">Get In Touch</span>
-                </h4>
-
-                <!-- Column 3 lists with links -->
-                <p class="bd-footer-link">
-
-                    <a href="https://support.hungryroot.com/hc/en-us/requests/new">
-                        <span class="icon-text">
-                            <span>Contact us</span>
-                        </span>
-                    </a>
-                    <br />
-                    <a
-                        href="https://support.hungryroot.com/hc/en-us?_gl=1*nh62im*_ga*MTMxMjQwODU5OC4xNzEwODAyMzEw*_ga_LH4B8FYSQ2*MTcxMDgwMjMwOS4xLjEuMTcxMDgwMjg2My42MC4wLjA.*_ga_QX5NDYMRT8*MTcxMDgwMjMxMC4xLjEuMTcxMDgwMjg2My42MC4wLjA.">
-                        <span class="icon-text">
-                            <span>Chat with us!</span>
-                        </span>
-                    </a>
-                </p>
-
+            <div class="col-12 col-md-9 p-3 text-light">
+                <h2>Showing results for <span id="result-text"></span></h2>
+                <div id="result-content"></div>
             </div>
         </div>
 
-        <!-- Copyright symbol of company -->
-        <div class="content has-text-centered">
-            <p>&copy; 2024 Flavor Alchemy. All rights reserved.</p>
-        </div>
+        <script src="./assets/js/display-search.js"></script>
+    </body>
 
-    </footer>
-
-    <!-- JavaScript files -->
-    <script src="./assets/js/script.js"></script>
-</body>
 </html>
