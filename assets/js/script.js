@@ -1,26 +1,85 @@
 
-
-var searchFormEl = document.querySelector('#search-form');
+var searchFormEl = document.getElementById('search-form');
 
 function handleSearchFormSubmit(event) {
     event.preventDefault();
 
-    var searchInputVal = document.querySelector('#search-input').value;
-    var formatInputVal = document.querySelector('#format-input').value;
+    var searchInputVal = document.getElementById('search-input').value;
+    //var formatInputVal = document.querySelector('#format-input').value;
 
     if (!searchInputVal) {
         console.error('You need a search input value!');
         return;
     }
 
-    var queryString = './search-results.html?q=' + searchInputVal + '&format=' + formatInputVal;
+    var queryString = './search-results.html?q=' + searchInputVal;
 
     location.assign(queryString);
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
 
-// Get the Sign up Newsletter modal by Ben
+/*
+// Assuming you have a reference to the <select> element
+var formatInput = document.getElementById('format-input');
+
+// Add an event listener for the 'change' event on formatInput
+formatInput.addEventListener('change', function () {
+    // Get the selected value
+    var selectedValue = formatInput.value;
+
+    // Perform actions based on the selected value
+    switch (selectedValue) {
+        case 'gluten-free':
+            // Handle gluten-free selection
+            console.log('User selected gluten-free');
+            break;
+        case 'nut-allergy':
+            // Handle nut allergy selection
+            console.log('User selected nut allergy');
+            break;
+        case 'non-Dairy':
+            // Handle non-dairy selection
+            console.log('User selected non-dairy');
+            break;
+        // Add cases for other options as needed
+        default:
+            // Handle other selections or no selection
+            console.log('User selected:', selectedValue);
+            break;
+    }
+
+    // Construct the query string with the selected format value
+    var queryString = './search-results.html?format=' + selectedValue;
+
+    // Redirect to the search results page with the query string
+    location.assign(queryString);
+});
+
+*/
+
+var searchFormEl1 = document.getElementById('search-form1');
+
+function handleSearchFormSubmit(event) {
+    event.preventDefault();
+
+    var searchInputVal = document.getElementById('search-input1').value;
+    // var formatInputVal = document.querySelector('#format-input').value;
+
+    if (!searchInputVal) {
+        console.error('You need a search input value!');
+        return;
+    }
+
+    var queryString = './search-results.html?q=' + searchInputVal;
+    location.assign(queryString);
+}
+
+searchFormEl1.addEventListener('submit', handleSearchFormSubmit);
+
+//searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
+// Get the Sign up Newsletter modal 
 var modal1 = document.getElementById('newsletterModal');
 
 // Get the button that opens the modal
