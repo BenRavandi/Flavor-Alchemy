@@ -157,14 +157,14 @@ function printResults1(resultObj) {
 }
 
 function edSearchApi(query, format) {
-    var edQueryUrl = 'https://api.edamam.com/api/recipes/v2/?app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&type=public&ingr=5-8';
+    var edQueryUrl = 'https://api.edamam.com/api/recipes/v2/?app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&type=public&q=' + query;
 
     if (format) {
-        edQueryUrl = 'https://api.edamam.com/api/' + format + '/?app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&type=public&ingr=5-8';
+        edQueryUrl = 'https://api.edamam.com/api/' + format + '/?app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&type=public&q='+ query;
     }
 
     if (query) {
-        edQueryUrl = edQueryUrl + '&query=' + query;
+        edQueryUrl = edQueryUrl + '&q=' + query;
     } else {
         console.log('No query provided!');
         return;
@@ -274,3 +274,4 @@ searchFormEl.addEventListener('submit', handleSearchFormSubmit);
 
 console.log(edemamApi + "this is working");
 // alternating api results 
+console.log("User input:", search-input1);
