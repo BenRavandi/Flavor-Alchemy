@@ -13,6 +13,7 @@ function getParams() {
     var format = searchParams.get('format');
 
     searchApi(query, format);
+    edSearchApi(query, format);
 }
 
 function printResults(resultObj) {
@@ -107,6 +108,7 @@ function handleSearchFormSubmit(event) {
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
 getParams();
 
 function getParams1() {
@@ -171,6 +173,19 @@ function edSearchApi(query, format) {
     console.log(query);
 
     fetch(edQueryUrl)
+
+
+
+function edSearchApi(query, format) {
+    var edemamApi = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&ingr=5';
+    if (format) {
+        edemamApi = 'https://api.edamam.com/api/recipes/v2' + format + '/?type=public&app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&ingr=5';
+    }
+
+    edemamApi = edemamApi + '&query=' + query;
+
+    fetch(edemamApi)
+
         .then(function (response) {
             if (!response.ok) {
                 throw response.json();
@@ -178,6 +193,7 @@ function edSearchApi(query, format) {
             return response.json();
         })
         .then(function (data) {
+
             var resultTextEl1 = document.getElementById('result-text1');
             resultTextEl1.textContent = query;
             console.log(data);
@@ -252,3 +268,22 @@ function handleSearchFormSubmit(event) {
 
 searchFormEl1.addEventListener('submit', handleSearchFormSubmit);
 getParams1();
+            console.log(data);
+            if (!data.results.length) {
+                console.log('No results found!');
+                resultContentEl.innerHTML = '<h3>No results found, search again!<h3>';
+            } else {
+                resultContentEl.textContent = '';
+                for (var i = 0; i < data.results.length; i++) {
+                    printResults(data.results[i]);
+                }
+            }
+        })
+}
+
+
+searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
+
+console.log(edemamApi + "this is working");
+// alternating api results 
