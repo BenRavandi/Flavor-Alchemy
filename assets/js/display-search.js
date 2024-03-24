@@ -173,19 +173,6 @@ function edSearchApi(query, format) {
     console.log(query);
 
     fetch(edQueryUrl)
-
-
-
-function edSearchApi(query, format) {
-    var edemamApi = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&ingr=5';
-    if (format) {
-        edemamApi = 'https://api.edamam.com/api/recipes/v2' + format + '/?type=public&app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&ingr=5';
-    }
-
-    edemamApi = edemamApi + '&query=' + query;
-
-    fetch(edemamApi)
-
         .then(function (response) {
             if (!response.ok) {
                 throw response.json();
@@ -278,8 +265,8 @@ getParams1();
                     printResults(data.results[i]);
                 }
             }
-        })
-}
+        
+
 
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
