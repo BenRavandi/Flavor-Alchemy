@@ -93,7 +93,7 @@ function handleSearchFormSubmit(event) {
     //var formatInputVal = document.querySelector('#format-input').value;
 
     var queryString = './search-results.html?q=' + searchInputVal;
-
+  
     location.assign(queryString);
 
     if (!searchInputVal) {
@@ -235,3 +235,4 @@ function handleSearchFormSubmit(event) {
 
 searchFormEl1.addEventListener('submit', handleSearchFormSubmit);
 getParams1();
+
