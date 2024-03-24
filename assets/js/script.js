@@ -1,20 +1,21 @@
 
 var searchFormEl = document.getElementById('search-form');
-
+console.log(searchFormEl)
 function handleSearchFormSubmit(event) {
     event.preventDefault();
 
     var searchInputVal = document.getElementById('search-input').value;
     //var formatInputVal = document.querySelector('#format-input').value;
-
+    console.log(document.getElementById('search-input'))
     if (!searchInputVal) {
         console.error('You need a search input value!');
         return;
     }
 
-    var queryString = './search-results.html?q=' + searchInputVal;
+    localStorage.setItem('ingredient', searchInputVal)
 
-    location.assign(queryString);
+
+    location.assign('./search-results.html');
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
@@ -60,7 +61,7 @@ formatInput.addEventListener('change', function () {
 
 var searchFormEl1 = document.getElementById('search-form1');
 
-function handleSearchFormSubmit(event) {
+function handleSearchFormSubmit1(event) {
     event.preventDefault();
 
     var searchInputVal = document.getElementById('search-input1').value;
@@ -71,11 +72,13 @@ function handleSearchFormSubmit(event) {
         return;
     }
 
-    var queryString = './search-results.html?q=' + searchInputVal;
-    location.assign(queryString);
+    localStorage.setItem('ingredient', searchInputVal)
+
+
+    location.assign('./search-results.html');
 }
 
-searchFormEl1.addEventListener('submit', handleSearchFormSubmit);
+searchFormEl1.addEventListener('submit', handleSearchFormSubmit1);
 
 //searchFormEl.addEventListener('submit', handleSearchFormSubmit);
 

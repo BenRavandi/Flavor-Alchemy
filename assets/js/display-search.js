@@ -5,15 +5,15 @@ var searchFormEl = document.getElementById('search-form');
 var resultTextEl1 = document.getElementById('result-text1');
 var resultContentEl1 = document.getElementById('result-content1');
 var searchFormEl1 = document.getElementById('search-form1');
+var searchInput = document.getElementById('search-input');
+searchInput.value = localStorage.getItem('ingredient');
+var searchInput = document.getElementById('search-input1');
+
 
 function getParams() {
 
-    var searchParams = new URLSearchParams(window.location.search);
-    var query = searchParams.get('q');
-    var format = searchParams.get('format');
-
-    searchApi(query, format);
-    edSearchApi(query, format);
+    var query = localStorage.getItem('ingredient')
+    searchApi(query);
 }
 
 function printResults(resultObj) {
@@ -52,12 +52,8 @@ function printResults(resultObj) {
     resultContentEl.append(resultCard);
 }
 
-function searchApi(query, format) {
+function searchApi(query) {
     var locQueryUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=a6bf495e456e4d60b43fb52e467a5468&includeNutrition=true&addRecipeInformation=true';
-
-    if (format) {
-        locQueryUrl = 'https://api.spoonacular.com/' + format + '/?apiKey=a6bf495e456e4d60b43fb52e467a5468&includeNutrition=true&addRecipeInformation=true';
-    }
 
     locQueryUrl = locQueryUrl + '&query=' + query;
 
@@ -97,7 +93,7 @@ function handleSearchFormSubmit(event) {
     //var formatInputVal = document.querySelector('#format-input').value;
 
     var queryString = './search-results.html?q=' + searchInputVal;
-
+  
     location.assign(queryString);
 
     if (!searchInputVal) {
@@ -108,16 +104,12 @@ function handleSearchFormSubmit(event) {
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-
 getParams();
 
 function getParams1() {
 
-    var searchParams = new URLSearchParams(window.location.search);
-    var query = searchParams.get('q');
-    var format = searchParams.get('format');
-
-    edSearchApi(query, format);
+    var query = localStorage.getItem('ingredient');
+    edSearchApi(query);
 }
 
 function printResults1(resultObj) {
@@ -156,21 +148,10 @@ function printResults1(resultObj) {
     resultContentEl1.append(resultCard);
 }
 
-function edSearchApi(query, format) {
-    var edQueryUrl = 'https://api.edamam.com/api/recipes/v2/?app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&type=public&q=' + query;
+function edSearchApi(query) {
+    var edQueryUrl = 'https://api.edamam.com/api/recipes/v2/?app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&type=public&ingr=5-8';
 
-    if (format) {
-        edQueryUrl = 'https://api.edamam.com/api/' + format + '/?app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&type=public&q='+ query;
-    }
-
-    if (query) {
-        edQueryUrl = edQueryUrl + '&q=' + query;
-    } else {
-        console.log('No query provided!');
-        return;
-    }
-
-    console.log(query);
+    edQueryUrl = edQueryUrl + '&q=' + query;
 
     fetch(edQueryUrl)
         .then(function (response) {
@@ -180,7 +161,6 @@ function edSearchApi(query, format) {
             return response.json();
         })
         .then(function (data) {
-
             var resultTextEl1 = document.getElementById('result-text1');
             resultTextEl1.textContent = query;
             console.log(data);
@@ -255,23 +235,4 @@ function handleSearchFormSubmit(event) {
 
 searchFormEl1.addEventListener('submit', handleSearchFormSubmit);
 getParams1();
-            console.log(data);
-            if (!data.results.length) {
-                console.log('No results found!');
-                resultContentEl.innerHTML = '<h3>No results found, search again!<h3>';
-            } else {
-                resultContentEl.textContent = '';
-                for (var i = 0; i < data.results.length; i++) {
-                    printResults(data.results[i]);
-                }
-            }
-        
 
-
-
-searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-
-
-console.log(edemamApi + "this is working");
-// alternating api results 
-console.log("User input:", search-input1);
