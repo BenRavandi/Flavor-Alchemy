@@ -104,6 +104,7 @@ function handleSearchFormSubmit(event) {
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
 getParams();
 
 function getParams1() {
@@ -154,84 +155,117 @@ function edSearchApi(query) {
     edQueryUrl = edQueryUrl + '&q=' + query;
 
     fetch(edQueryUrl)
-        .then(function (response) {
-            if (!response.ok) {
-                throw response.json();
-            }
-            return response.json();
-        })
-        .then(function (data) {
-            var resultTextEl1 = document.getElementById('result-text1');
-            resultTextEl1.textContent = query;
-            console.log(data);
 
-            if (!data.hits.length) {
-                console.log('No results found!');
-                resultContentEl1.innerHTML = '<h3>No results found, search again!</h3>';
-            } else {
-                resultContentEl1.textContent = '';
-                for (var i = 0; i < data.hits.length; i++) {
-                    printResults1(data.hits[i]);
+
+
+    function edSearchApi(query, format) {
+        var edemamApi = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&ingr=5';
+        if (format) {
+            edemamApi = 'https://api.edamam.com/api/recipes/v2' + format + '/?type=public&app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&ingr=5';
+        }
+
+        edemamApi = edemamApi + '&query=' + query;
+
+        fetch(edemamApi)
+
+            .then(function (response) {
+                if (!response.ok) {
+                    throw response.json();
                 }
-            }
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-}
+                return response.json();
+            })
+            .then(function (data) {
 
-/*// Assuming you have a reference to the <select> element
-var formatInput = document.getElementById('format-input');
+                var resultTextEl1 = document.getElementById('result-text1');
+                resultTextEl1.textContent = query;
+                console.log(data);
 
-// Add an event listener for the 'change' event on formatInput
-formatInput.addEventListener('change', function () {
-    // Get the selected value
-    var selectedValue = formatInput.value;
-
-    // Perform actions based on the selected value
-    switch (selectedValue) {
-        case 'gluten-free':
-            // Handle gluten-free selection
-            console.log('User selected gluten-free');
-            break;
-        case 'nut-allergy':
-            // Handle nut allergy selection
-            console.log('User selected nut allergy');
-            break;
-        case 'non-Dairy':
-            // Handle non-dairy selection
-            console.log('User selected non-dairy');
-            break;
-        // Add cases for other options as needed
-        default:
-            // Handle other selections or no selection
-            console.log('User selected:', selectedValue);
-            break;
+                if (!data.hits.length) {
+                    console.log('No results found!');
+                    resultContentEl1.innerHTML = '<h3>No results found, search again!</h3>';
+                } else {
+                    resultContentEl1.textContent = '';
+                    for (var i = 0; i < data.hits.length; i++) {
+                        printResults1(data.hits[i]);
+                    }
+                }
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
     }
 
-    // Construct the query string with the selected format value
-    var queryString = './search-results.html?format=' + selectedValue;
+    /*// Assuming you have a reference to the <select> element
+    var formatInput = document.getElementById('format-input');
+    
+    // Add an event listener for the 'change' event on formatInput
+    formatInput.addEventListener('change', function () {
+        // Get the selected value
+        var selectedValue = formatInput.value;
+    
+        // Perform actions based on the selected value
+        switch (selectedValue) {
+            case 'gluten-free':
+                // Handle gluten-free selection
+                console.log('User selected gluten-free');
+                break;
+            case 'nut-allergy':
+                // Handle nut allergy selection
+                console.log('User selected nut allergy');
+                break;
+            case 'non-Dairy':
+                // Handle non-dairy selection
+                console.log('User selected non-dairy');
+                break;
+            // Add cases for other options as needed
+            default:
+                // Handle other selections or no selection
+                console.log('User selected:', selectedValue);
+                break;
+        }
+    
+        // Construct the query string with the selected format value
+        var queryString = './search-results.html?format=' + selectedValue;
+    
+        // Redirect to the search results page with the query string
+        location.assign(queryString);
+    });
+    
+    //edSearchApi();
+    getParams1();*/
+    function handleSearchFormSubmit(event) {
+        event.preventDefault();
 
-    // Redirect to the search results page with the query string
-    location.assign(queryString);
-});
+        var searchInputVal = document.getElementById('search-input1').value;
+        // var formatInputVal = document.querySelector('#format-input').value;
 
-//edSearchApi();
-getParams1();*/
-function handleSearchFormSubmit(event) {
-    event.preventDefault();
+        if (!searchInputVal) {
+            console.error('You need a search input value!');
+            return;
+        }
 
-    var searchInputVal = document.getElementById('search-input1').value;
-    // var formatInputVal = document.querySelector('#format-input').value;
-
-    if (!searchInputVal) {
-        console.error('You need a search input value!');
-        return;
+        var queryString = './search-results.html?q=' + searchInputVal;
+        location.assign(queryString);
     }
 
-    var queryString = './search-results.html?q=' + searchInputVal;
-    location.assign(queryString);
+    searchFormEl1.addEventListener('submit', handleSearchFormSubmit);
+    getParams1();
+    console.log(data);
+    if (!data.results.length) {
+        console.log('No results found!');
+        resultContentEl.innerHTML = '<h3>No results found, search again!<h3>';
+    } else {
+        resultContentEl.textContent = '';
+        for (var i = 0; i < data.results.length; i++) {
+            printResults(data.results[i]);
+        }
+    }
+})
 }
 
-searchFormEl1.addEventListener('submit', handleSearchFormSubmit);
-getParams1();
+
+searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
+
+console.log(edemamApi + "this is working");
+// alternating api results 
