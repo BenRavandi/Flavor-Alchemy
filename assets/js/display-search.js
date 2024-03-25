@@ -1,4 +1,5 @@
 
+// Set all the global variables
 var resultTextEl = document.getElementById('result-text');
 var resultContentEl = document.getElementById('result-content');
 var searchFormEl = document.getElementById('search-form');
@@ -6,17 +7,13 @@ var resultTextEl1 = document.getElementById('result-text1');
 var resultContentEl1 = document.getElementById('result-content1');
 var searchFormEl1 = document.getElementById('search-form1');
 var searchInput = document.getElementById('search-input');
+var query = localStorage.getItem('ingredient')
+
+// Set local storage get item
 searchInput.value = localStorage.getItem('ingredient');
-var searchInput = document.getElementById('search-input1');
 
-
-function getParams() {
-
-    var query = localStorage.getItem('ingredient')
-    searchApi(query);
-}
-
-function printResults(resultObj) {
+// Print result for Spoonacular API
+function printSpoonacularResults(resultObj) {
 
     // Set up <div> to hold result content
     var resultCard = document.createElement('div');
@@ -27,9 +24,9 @@ function printResults(resultObj) {
     resultCard.append(resultBody);
 
     var titleEl = document.createElement('h3');
-    titleEl.textContent = resultObj.title;
+    titleEl.innerHTML =
+        '<strong>Title:</strong> ' + resultObj.title + '<br/>';
 
-    // Create separate variables for each paragraph
     var healthScoreEl = document.createElement('p');
     healthScoreEl.innerHTML =
         '<strong>HealthScore:</strong> ' + resultObj.healthScore + '<br/>';
@@ -52,7 +49,8 @@ function printResults(resultObj) {
     resultContentEl.append(resultCard);
 }
 
-function searchApi(query) {
+// Set Spoonacular API & pass in query parameter
+function searchSpoonacularApi(query) {
     var locQueryUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=a6bf495e456e4d60b43fb52e467a5468&includeNutrition=true&addRecipeInformation=true';
 
     locQueryUrl = locQueryUrl + '&query=' + query;
@@ -76,7 +74,7 @@ function searchApi(query) {
             } else {
                 resultContentEl.textContent = '';
                 for (var i = 0; i < data.results.length; i++) {
-                    printResults(data.results[i]);
+                    printSpoonacularResults(data.results[i]);
                 }
             }
         })
@@ -85,34 +83,27 @@ function searchApi(query) {
         });
 }
 
-
-function handleSearchFormSubmit(event) {
+// Set event handler to submit the query for Spoonacular
+function handleSpoonacularSearchFormSubmit(event) {
     event.preventDefault();
 
     var searchInputVal = document.getElementById('search-input').value;
-    //var formatInputVal = document.querySelector('#format-input').value;
-
-    var queryString = './search-results.html?q=' + searchInputVal;
-  
-    location.assign(queryString);
 
     if (!searchInputVal) {
         console.error('You need a search input value!');
         return;
     }
 
+    localStorage.setItem('ingredient', searchInputVal)
+    location.assign('./search-results.html');
 }
 
-searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-getParams();
+// Call the event handler & Spoonacular API
+searchFormEl.addEventListener('submit', handleSpoonacularSearchFormSubmit);
+searchSpoonacularApi(query);
 
-function getParams1() {
-
-    var query = localStorage.getItem('ingredient');
-    edSearchApi(query);
-}
-
-function printResults1(resultObj) {
+// Print the result for Edamam API
+function printEdamamResults(resultObj) {
 
     // Set up <div> to hold result content
     var resultCard = document.createElement('div');
@@ -122,20 +113,20 @@ function printResults1(resultObj) {
     resultBody.classList.add('card-body');
     resultCard.append(resultBody);
 
-    var titleEl = document.createElement('h3');
-    titleEl.innerHTML = resultObj.recipe.label;
+    var labelEl = document.createElement('h3');
+    labelEl.innerHTML =
+        '<strong>Title:</strong> ' + resultObj.recipe.label + '<br/>';
 
-    // Create separate variables for each paragraph
-    var healthScoreEl = document.createElement('p');
-    healthScoreEl.innerHTML =
+    var caloryEl = document.createElement('p');
+    caloryEl.innerHTML =
         '<strong>Calory:</strong> ' + resultObj.recipe.calories + '<br/>';
 
     var summaryEl = document.createElement('p');
     summaryEl.innerHTML =
         '<strong>Summary:</strong> ' + resultObj.recipe.ingredientLines + '<br/>';
 
-    var dietsEl = document.createElement('p');
-    dietsEl.innerHTML =
+    var sourceEl = document.createElement('p');
+    sourceEl.innerHTML =
         '<strong>Source:</strong> ' + resultObj.recipe.source + '<br/>';
 
     var linkButtonEl = document.createElement('a');
@@ -144,11 +135,12 @@ function printResults1(resultObj) {
     linkButtonEl.classList.add('btn', 'btn-dark');
 
     // Append all elements to resultBody
-    resultBody.append(titleEl, healthScoreEl, summaryEl, dietsEl, linkButtonEl);
+    resultBody.append(labelEl, caloryEl, summaryEl, sourceEl, linkButtonEl);
     resultContentEl1.append(resultCard);
 }
 
-function edSearchApi(query) {
+// Set Edamam API and Pass in the query param
+function searchEdamamApi(query) {
     var edQueryUrl = 'https://api.edamam.com/api/recipes/v2/?app_id=ac44fd70&app_key=9a421c71e921c4cbd0e1d6f366a2f484&type=public&ingr=5-8';
 
     edQueryUrl = edQueryUrl + '&q=' + query;
@@ -161,7 +153,7 @@ function edSearchApi(query) {
             return response.json();
         })
         .then(function (data) {
-            var resultTextEl1 = document.getElementById('result-text1');
+
             resultTextEl1.textContent = query;
             console.log(data);
 
@@ -171,7 +163,7 @@ function edSearchApi(query) {
             } else {
                 resultContentEl1.textContent = '';
                 for (var i = 0; i < data.hits.length; i++) {
-                    printResults1(data.hits[i]);
+                    printEdamamResults(data.hits[i]);
                 }
             }
         })
@@ -180,59 +172,5 @@ function edSearchApi(query) {
         });
 }
 
-/*// Assuming you have a reference to the <select> element
-var formatInput = document.getElementById('format-input');
-
-// Add an event listener for the 'change' event on formatInput
-formatInput.addEventListener('change', function () {
-    // Get the selected value
-    var selectedValue = formatInput.value;
-
-    // Perform actions based on the selected value
-    switch (selectedValue) {
-        case 'gluten-free':
-            // Handle gluten-free selection
-            console.log('User selected gluten-free');
-            break;
-        case 'nut-allergy':
-            // Handle nut allergy selection
-            console.log('User selected nut allergy');
-            break;
-        case 'non-Dairy':
-            // Handle non-dairy selection
-            console.log('User selected non-dairy');
-            break;
-        // Add cases for other options as needed
-        default:
-            // Handle other selections or no selection
-            console.log('User selected:', selectedValue);
-            break;
-    }
-
-    // Construct the query string with the selected format value
-    var queryString = './search-results.html?format=' + selectedValue;
-
-    // Redirect to the search results page with the query string
-    location.assign(queryString);
-});
-
-//edSearchApi();
-getParams1();*/
-function handleSearchFormSubmit(event) {
-    event.preventDefault();
-
-    var searchInputVal = document.getElementById('search-input1').value;
-    // var formatInputVal = document.querySelector('#format-input').value;
-
-    if (!searchInputVal) {
-        console.error('You need a search input value!');
-        return;
-    }
-
-    var queryString = './search-results.html?q=' + searchInputVal;
-    location.assign(queryString);
-}
-
-searchFormEl1.addEventListener('submit', handleSearchFormSubmit);
-getParams1();
-
+// Call Edamam API
+searchEdamamApi(query);
