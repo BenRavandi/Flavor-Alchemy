@@ -126,3 +126,16 @@ footer {
     background-color: #266624;
     color: #f0f0f0;
 }
+
+@media screen and (max-width: 992px) {
+    .column {
+        width: 50%;
+    }
+}
+
+/* On screens that are 600px wide or less, stack columns vertically */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
