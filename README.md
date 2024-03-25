@@ -7,7 +7,6 @@
 - [Acceptance Criteria](#acceptance-criteria)
 - [Images](#images) 
 - [Link To Deployed Webpage](#link-url-to-deployed-webpage)
-- [Installation](#installation)
 - [Technologies Used](#technologies-used)
 - [Third Party APIs](#third-party-apis)
 - [Credits](#credits)
@@ -24,29 +23,22 @@ Returning users should be able to update their profile settings at any time
 ## Acceptance Criteria
 - The application should provide a search functionality for pasta recipes.
 
-- Users should be able to filter recipes based on dietary preferences, such as vegetarian or gluten-free.
+- Users should be able to search recipes based on dietary preferences, such as vegetarian or gluten-free.
 
 - Each recipe should include a list of ingredients and clear step-by-step instructions.
 
-- Users should have the option to save their favorite recipes for future reference.
-
-- The application should display appealing images of the finished dish to help users visualize the outcome.
-
-- The recipe information should be easy to read and accessible on both desktop and mobile devices.
-
-- The application could suggest wine pairings or complementary side dishes for each recipe.
-
-- Users could have the option to create shopping lists based on the chosen recipe.
+- The recipe information should be easy to read and accessible on desktop.
 
 - The application could offer video tutorials for certain recipes to assist users in the cooking process.
 
 ## Images
-![Website Preview Image](*)
+![Website Preview Image](assets/images/food-preview.png)
+![Website Preview Image](assets/images/food-preview2.png)
 
 
 ## Link URL to deployed webpage
 
-
+https://hammerc124.github.io/Group-Project-1/
 
 
 
@@ -58,11 +50,8 @@ Assignment was built with:
 - CSS
 - JAVASCRIPT
 ## Third Party APIs 
-- https://releases.jquery.com/
-- https://cdnjs.com/
-- https://fonts.google.com/
-- https://getbootstrap.com/
-- https://openweathermap.org/api
+- https://spoonacular.com/food-api
+- https://developer.edamam.com/edamam-docs-recipe-api
 
 
 ## Credits
