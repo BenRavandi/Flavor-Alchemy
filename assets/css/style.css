@@ -1,92 +1,66 @@
 body {
     font-family: 'Graduate', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
+    text-decoration: solid;
+    color: #070505;
 }
 
 /* Header styles */
 header {
-    background-color: #4c4ff3;
-    color: #fff;
+    color: hsl(0, 22%, 63%);
     padding: 20px;
     text-align: center;
     background-image: url(https://img.freepik.com/free-photo/top-view-fresh-vegetables-red-pepper-powder-turmeric-small-bowls-wooden-spoons-table-free-space_140725-147447.jpg?t=st=1710811282~exp=1710814882~hmac=3c92e249a79904d650583a311bef42c18464f79d6efd5efb02cc662bae8bfb77&w=1380);
     background-size: cover;
+    height: 200px;
 }
 
-/* Navigation styles */
-nav {
-
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+header h1 {
+    color: #e0e0e0;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
+h1 {
+    color: #070505;
+    text-align: justify;
+    margin-top: 20px;
 }
+
+#bodyImage {
+    background-image: url('https://wallpaperaccess.com/full/2696016.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 65px;
+}
+
+#description {
+    display: inline-block;
+    color: #070505;
+}
+
+#sidebar {
+    display: inline;
+
+}
+
 
 /* Product description styles */
 .product-description {
     background-color: #fff;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 5px;
 }
 
 .product-description h2 {
-    color: #333;
-}
-
-/* Sidebar styles */
-.sidebar {
-    float: center;
-    width: 30%;
-    background-color: #f0f0f0;
-    padding: 40px;
-}
-
-/*.sidebar .login-form {
-    background-color: #fff;
-    padding: 20px;
-}
-
-.sidebar .login-form h2 {
-    color: #333;
-}*/
-
-.sidebar input[type="text"],
-.sidebar input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #116e0d;
-    border-radius: 5px;
+    color: #070505;
 }
 
 /* Footer styles */
-footer {
-    background-color: #4c4ff3;
-
-    color: #0e0d0d;
-
-    padding: 20px;
-    text-align: center;
-}
-
-footer {
-    /*background-image: url("https://injectionmoldingmachines.in/wp-content/uploads/2019/12/footer-background.png")*/
+#customizedFooter {
     background-image: url("https://img.freepik.com/premium-photo/food-cooking-background-stone-texture-with-sea-salt-pepper-garlic-parsley-light-grey-abstract-food-background-empty-space-text-can-be-used-food-posters-design-menu-top-view_253362-16400.jpg?w=2000");
-    width: 100%;
-    background-size: 1950px 600px;
-    margin-top: 225px;
+    background-size: cover;
+    text-align: center;
+    margin: none;
+    color: #070505;
+    position: relative;
+
 }
 
 

@@ -18,10 +18,8 @@
         <h1 class="is-size-1 has-text-centered">Flavor Alchemy</h1>
     </header>
 
-
-
-    <body class="has-background-primary-light">
-        <div class="py-6 my-3 product-description has-background-primary-light">
+    <div class="py-6 my-3 product-description has-background-primary-light" id="bodyImage">
+        <div id="description">
             <h2>Product Description:</h2>
             <p>Flavor Alchemy is your friend to give you the best receipe possible with different options to choose
                 from. You’ll discover an extensive collection of tried-and-tested recipes, ranging from everyday
@@ -30,102 +28,102 @@
                 your culinary journey based on your unique preferences. Our system will use your information to
                 generate meal recommendations tailored to your unique taste. Whether
                 you’re craving comfort food or want to explore global cuisines, Flavor Alchemy has it all!!!</p>
+        </div>
+        <div class="flex-row align-center justify-center min-100-vh has-background-primary-light" id="bodyImage">
+            <div class="col-12 col-md-9 flex-column align-center bg-primary-light p-5" id="sidebar">
+                <h1 class="text-primary">Flavor Alchemy Recipe Library </h1>
+                <form id="search-form" class="form w-100">
+                    <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
+                    <button class="btn btn-info btn-block">Find Me</button>
+                </form>
+            </div>
+        </div>
 
-            <div class="flex-row align-center justify-center min-100-vh has-background-primary-light">
-                <div class="col-12 col-md-9 flex-column align-center bg-primary-light p-5">
-                    <h1 class="text-primary">Flavor Alchemy Recipe Library </h1>
-                    <form id="search-form" class="form w-100">
-                        <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
-                        <button class="btn btn-info btn-block">Find Me</button>
-                    </form>
+        <footer class="footer" id="customizedFooter">
+            <div class="columns">
+                <div class="column">
+                    <p class="bd-footer-link  
+                    has-text-left">
+                        Flavor Alchemy Easy to navigate, with recipes organized by category or by collection,
+                        Recipetineatsfocuses on great food with everyday ingredients, which can be put together even
+                        if
+                        you’re busy and on a limited budget.
+                    </p><br>
+                </div>
+                <div class="column">
+                    <h4 class="bd-footer-title  
+                     has-text-weight-medium  
+                     has-text-justify">
+                        <span style="text-decoration: underline;">Explore</span>
+                    </h4>
+                    <p class="bd-footer-link">
+                        <a href="https://www.hungryroot.com/philosophy/">
+                            <span class="icon-text">
+                                <span>Philosophy</span>
+                            </span>
+                        </a>
+                        <br />
+                        <a
+                            href="https://blog.hungryroot.com/?_gl=1*s46dtk*_ga*MTMxMjQwODU5OC4xNzEwODAyMzEw*_ga_LH4B8FYSQ2*MTcxMDgwMjMwOS4xLjEuMTcxMDgwMjcxNC4zMy4wLjA.*_ga_QX5NDYMRT8*MTcxMDgwMjMxMC4xLjEuMTcxMDgwMjcxNC4zMy4wLjA.">
+                            <span class="icon-text">
+                                <span>Blogs</span>
+                            </span>
+                        </a>
+                        <br />
+                        <a href="https://www.hungryroot.com/careers/">
+                            <span class="icon-text">
+                                <span>Careers</span>
+                            </span>
+                        </a>
+                    </p>
+                    <div id="newletterButton">
+                        <button onclick="openModal()">NEWSLETTER SIGN UP</button>
+                        <div id="newsletterModal" class="modal">
+                            <span onclick="closeModal()" class="close" title="Close Modal">&times;</span>
+                            <form class="modal-content"
+                                action="https://w1.buysub.com/pubs/BP/CID/CID_Social_999_ISC23E043.jsp?cds_page_id=274869&cds_mag_code=CID&id=1710962999595&lsid=40801429595048241&vid=1&utm_medium=cpc&utm_content=Food&utm_term=food+magazine+subscription&msclkid=aba3722bf52210c3181417d0cc38f514&utm_source=bing&utm_campaign=Non-Brand%7CMagazine%7CPhrase"
+                                method="post">
+                                <div class="container">
+                                    <h1>Sign Up for Our Newsletter</h1>
+                                    <p>Please enter your email address:</p>
+                                    <input type="email" placeholder="Enter Email" name="email" required>
+                                    <button type="submit" id="subscribe">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h4 class="bd-footer-title 
+                     has-text-weight-medium 
+                     has-text-justify">
+                        <span style="text-decoration: underline;">Get In Touch</span>
+                    </h4>
+                    <p class="bd-footer-link">
+                        <a href="https://support.hungryroot.com/hc/en-us/requests/new">
+                            <span class="icon-text">
+                                <span>Contact us</span>
+                            </span>
+                        </a>
+                        <br />
+                        <a
+                            href="https://support.hungryroot.com/hc/en-us?_gl=1*nh62im*_ga*MTMxMjQwODU5OC4xNzEwODAyMzEw*_ga_LH4B8FYSQ2*MTcxMDgwMjMwOS4xLjEuMTcxMDgwMjg2My42MC4wLjA.*_ga_QX5NDYMRT8*MTcxMDgwMjMxMC4xLjEuMTcxMDgwMjg2My42MC4wLjA.">
+                            <span class="icon-text">
+                                <span>Chat with us!</span>
+                            </span>
+                        </a>
+                    </p>
+
                 </div>
             </div>
 
-            <footer class="footer">
-                <div class="columns">
-                    <div class="column">
-                        <p class="bd-footer-link  
-                    has-text-left">
-                            Flavor Alchemy Easy to navigate, with recipes organized by category or by collection,
-                            Recipetineatsfocuses on great food with everyday ingredients, which can be put together even
-                            if
-                            you’re busy and on a limited budget.
-                        </p><br>
-                    </div>
-                    <div class="column">
-                        <h4 class="bd-footer-title  
-                     has-text-weight-medium  
-                     has-text-justify">
-                            <span style="text-decoration: underline;">Explore</span>
-                        </h4>
-                        <p class="bd-footer-link">
-                            <a href="https://www.hungryroot.com/philosophy/">
-                                <span class="icon-text">
-                                    <span>Philosophy</span>
-                                </span>
-                            </a>
-                            <br />
-                            <a
-                                href="https://blog.hungryroot.com/?_gl=1*s46dtk*_ga*MTMxMjQwODU5OC4xNzEwODAyMzEw*_ga_LH4B8FYSQ2*MTcxMDgwMjMwOS4xLjEuMTcxMDgwMjcxNC4zMy4wLjA.*_ga_QX5NDYMRT8*MTcxMDgwMjMxMC4xLjEuMTcxMDgwMjcxNC4zMy4wLjA.">
-                                <span class="icon-text">
-                                    <span>Blogs</span>
-                                </span>
-                            </a>
-                            <br />
-                            <a href="https://www.hungryroot.com/careers/">
-                                <span class="icon-text">
-                                    <span>Careers</span>
-                                </span>
-                            </a>
-                        </p>
-                        <div id="newletterButton">
-                            <button onclick="openModal()">NEWSLETTER SIGN UP</button>
-                            <div id="newsletterModal" class="modal">
-                                <span onclick="closeModal()" class="close" title="Close Modal">&times;</span>
-                                <form class="modal-content"
-                                    action="https://w1.buysub.com/pubs/BP/CID/CID_Social_999_ISC23E043.jsp?cds_page_id=274869&cds_mag_code=CID&id=1710962999595&lsid=40801429595048241&vid=1&utm_medium=cpc&utm_content=Food&utm_term=food+magazine+subscription&msclkid=aba3722bf52210c3181417d0cc38f514&utm_source=bing&utm_campaign=Non-Brand%7CMagazine%7CPhrase"
-                                    method="post">
-                                    <div class="container">
-                                        <h1>Sign Up for Our Newsletter</h1>
-                                        <p>Please enter your email address:</p>
-                                        <input type="email" placeholder="Enter Email" name="email" required>
-                                        <button type="submit" id="subscribe">Subscribe</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+            <div class="content has-text-centered">
+                <p>&copy; 2024 Flavor Alchemy. All rights reserved.</p>
+            </div>
+        </footer>
 
-                    <div class="column">
-                        <h4 class="bd-footer-title 
-                     has-text-weight-medium 
-                     has-text-justify">
-                            <span style="text-decoration: underline;">Get In Touch</span>
-                        </h4>
-                        <p class="bd-footer-link">
-                            <a href="https://support.hungryroot.com/hc/en-us/requests/new">
-                                <span class="icon-text">
-                                    <span>Contact us</span>
-                                </span>
-                            </a>
-                            <br />
-                            <a
-                                href="https://support.hungryroot.com/hc/en-us?_gl=1*nh62im*_ga*MTMxMjQwODU5OC4xNzEwODAyMzEw*_ga_LH4B8FYSQ2*MTcxMDgwMjMwOS4xLjEuMTcxMDgwMjg2My42MC4wLjA.*_ga_QX5NDYMRT8*MTcxMDgwMjMxMC4xLjEuMTcxMDgwMjg2My42MC4wLjA.">
-                                <span class="icon-text">
-                                    <span>Chat with us!</span>
-                                </span>
-                            </a>
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="content has-text-centered">
-                    <p>&copy; 2024 Flavor Alchemy. All rights reserved.</p>
-                </div>
-            </footer>
-
-            <script src="./assets/js/script.js"></script>
-    </body>
+        <script src="./assets/js/script.js"></script>
+</body>
 
 </html>

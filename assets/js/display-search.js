@@ -49,7 +49,7 @@ function printSpoonacularResults(resultObj) {
     resultContentEl.append(resultCard);
 }
 
-// Set Spoonacular API & pass in query parameter
+// Set Spoonacular API & Pass in query parameter
 function searchSpoonacularApi(query) {
     var locQueryUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=a6bf495e456e4d60b43fb52e467a5468&includeNutrition=true&addRecipeInformation=true';
 

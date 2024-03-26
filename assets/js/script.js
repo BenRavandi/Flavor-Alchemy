@@ -1,5 +1,5 @@
 
-// Set global variable
+// Set global variables
 var searchFormEl = document.getElementById('search-form');
 var modal1 = document.getElementById('newsletterModal');
 var btn = document.getElementById("newsletterButton");
